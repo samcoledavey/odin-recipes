@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forensic Notes</title>
+  <style>
+    :root {
+      --background: #ffffff;
+      --text-color: #333333;
+      --card-background: #f9f9f9;
+      --border-color: #cccccc;
+      --input-background: #ffffff;
+      --input-text: #333333;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    [data-theme="dark"] {
+      --background: #1e1e1e;
+      --text-color: #ffffff;
+      --card-background: #2a2a2a;
+      --border-color: #444444;
+      --input-background: #333333;
+      --input-text: #ffffff;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: var(--background);
+      color: var(--text-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: var(--card-background);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      width: 500px;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      background: var(--input-background);
+      color: var(--input-text);
+      font-size: 14px;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #4CAF50;
+    }
+
+    .button {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    .button:hover {
+      background: #45a049;
+    }
+
+    .dark-mode-toggle {
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .dark-mode-toggle button {
+      background: none;
+      border: none;
+      color: var(--text-color);
+      cursor: pointer;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="dark-mode-toggle">
+      <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+    </div>
+    <h1>Forensic Notes</h1>
+    <div class="form-group">
+      <label for="case-id">Case ID</label>
+      <input type="text" id="case-id" placeholder="Enter Case ID">
+    </div>
+    <div class="form-group">
+      <label for="serial-number">Serial Number</label>
+      <input type="text" id="serial-number" placeholder="Enter Serial Number">
+    </div>
+    <div class="form-group">
+      <label for="observations">Observations</label>
+      <textarea id="observations" rows="4" placeholder="Enter observations"></textarea>
+    </div>
+    <button class="button">Save and Validate</button>
+  </div>
+  <script>
+    function toggleDarkMode() {
+      const theme = document.body.getAttribute("data-theme");
+      document.body.setAttribute("data-theme", theme === "dark" ? "light" : "dark");
+    }
+
+    document.body.setAttribute("data-theme", "light"); // Default to light mode
+  </script>
+</body>
+</html>
